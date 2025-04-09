@@ -18,7 +18,7 @@ against 15-CURRENT. I don't know if it will be merged upstream but at the time o
 writing it has not been.
 
 
-* [konstanin1.patch](konstanin1.patch), 
+* [konstanin1.patch](konstanin1.patch), <br>
   [konstanin2.patch](konstanin2.patch)
 
 Author: Konstanin Belousov
