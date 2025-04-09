@@ -1,0 +1,17 @@
+diff --git a/sys/amd64/vmm/io/iommu.c b/sys/amd64/vmm/io/iommu.c
+index 7167734c000b..9fc612244699 100644
+--- a/sys/amd64/vmm/io/iommu.c
++++ b/sys/amd64/vmm/io/iommu.c
+@@ -237,7 +237,11 @@ iommu_init(void)
+ 				 */
+ 				error = iommu_add_device(host_domain, dev,
+ 				    pci_get_rid(dev));
+-				if (error != 0) {
++				if (error != 0 && error != ENXIO) {
++					printf(
++			"iommu_add_device(%s rid %#x) failed,  error %d\n",
++					    device_get_name(dev),
++					    pci_get_rid(dev), error);
+ 					iommu_cleanup_int(false);
+ 					return;
+ 				}
